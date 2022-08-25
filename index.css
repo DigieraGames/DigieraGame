@@ -1,8 +1,9 @@
 .navbar-light{
-    background-color: blue;
+    background-color: pink;
     backdrop-filter: blur(5px);
 }
 
 body{
-    background-color: grey;
+    background-color: black;
+    color: white;
 }
