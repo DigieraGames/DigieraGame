@@ -1,6 +1,6 @@
 .navbar-light{
-    background-color: grey;
-    backdrop-filter: drop-shadow(4px 4px 10px green);
+    background-color: blue;
+    backdrop-filter: blur(5px);
 }
 
 body{
