@@ -1,0 +1,373 @@
+:root{
+    --bg-color: rgba(27,29,33,0.3);
+    --bg-color-solid: rgb(27,29,33);
+    --logo-color: rgb(233,233,75);
+    --font-color: #ccc;
+}
+
+*{
+    margin:0px;
+    padding:0px;
+}
+
+/* NAVBAR-START */
+.navbar, .dropdown-menu{
+    width:100%;
+    position: fixed;
+    top: 0px;
+    background-color: var(--bg-color);
+    backdrop-filter: blur(7.5px);
+    border-bottom: 2px solid grey;
+}
+
+.dropdown-item, .nav-link{
+    color: var(--font-color);
+}
+
+.dropdown-item:hover, .nav-link:hover{
+    color: var(--logo-color);
+    background-color: var(--bg-color);
+}
+
+#brand{
+    color: whitesmoke;
+    font-weight: bolder;
+    margin-left: 2.25vw;
+}
+
+.nav-link{
+    margin-left: 2.25vw;
+} 
+/* NAVBAR ENDS  */
+
+/* SLIDER-START */
+.slide-container{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide-container::after {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height:100%;
+    content: '';
+    z-index: 10;
+    background-image: linear-gradient(
+      90deg,rgba(0,0,0,1), rgba(255,255,255,0.1));
+  }
+
+.slide video{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.arrow{
+    cursor: pointer;
+    position:absolute;
+    top: 10%;
+    color: white;
+    font-size: 1.75vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+.next{
+    right: 0px;
+    padding-right: 15px;
+}
+
+.prev{
+    left: 0px;
+    padding-left: 15px;
+}
+
+.caption{
+    width: 220px;
+    height: 50px;
+    background-color: var(--bg-color);
+    backdrop-filter: blur(7.5px);
+    position: absolute;
+    font-size: 5vw;
+    border-radius: 25px;
+    bottom: 30px;
+    padding: 10px 15px; 
+    z-index:99;
+}
+
+.slider-icon{
+    cursor: pointer;
+    color: white;
+    font-size: 1vw;
+    letter-spacing: 5px;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+} 
+
+.bi{
+    padding: 7px 7px 0px 7px;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+}
+
+.slide{
+    display: none;
+}
+
+.vid-sticker{
+    position: absolute;
+    top:20vh;
+    left:5vw;
+    width:30vw;
+    height:57.5vh;
+    z-index: 999;
+    color:white;
+    text-align: center;
+    font-size: 2vw;
+    /* overflow:hidden; */
+}
+
+.sticker-btn{
+    background-color: rgba(0, 195, 255, 0.2);
+    border: 2px solid  rgba(0, 208, 255, 0.5);
+    border-radius: 25px;
+    margin: 0px 15px;
+    padding: 4px 25px;
+    font-size: 1.5vw;
+    color:white;
+}
+
+#visit-btn{
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid white;
+}
+
+.sticker-btn:hover, #visit-btn:hover{
+    background-color: rgba(0, 195, 255, 0.5);
+}
+
+
+/* SLIDER-END */
+
+
+/* MEDIA QUERIES */
+
+/* EXTRA EXTRA SMALL */
+@media screen and (max-width: 360px){
+    .slide video{
+        height: 60vh;
+    }
+
+    .caption{
+        width: 140px;
+        height: 30px;
+    }
+
+    .arrow{
+        top: 20%;
+        font-size: 3vw;
+    }
+    
+    .slider-icon{
+        font-size: 2vw;
+        } 
+
+    .bi{
+        padding: 3px 7px 0px 7px;
+        }
+
+    .vid-sticker{
+        top:12.5vh;
+        left:25vw;
+        width:50vw;
+        height:22.5vh;
+        font-size: 3.75vw;
+    }
+    
+    .sticker-btn{
+        margin: 5px 15px;
+        padding: 4px 15px;
+        font-size: 3vw;
+    }    
+}
+
+/* EXTRA SMALL */
+@media screen and (min-width: 361px) and  (max-width: 420px){
+    .slide video{
+        height: 50vh;
+    }
+
+    .caption{
+        width: 140px;
+        height: 30px;
+    }
+
+    .arrow{
+        top: 20%;
+        font-size: 3vw;
+    }
+    
+    .slider-icon{
+        font-size: 2vw;
+        } 
+
+    .bi{
+        padding: 3px 7px 0px 7px;
+        }
+    
+    .vid-sticker{
+        top:10vh;
+        left:25vw;
+        width:50vw;
+        height:22.5vh;
+        font-size: 3.75vw;
+    }
+    
+    .sticker-btn{
+        margin: 5px 15px;
+        padding: 4px 15px;
+        font-size: 3vw;
+    }    
+}
+
+/* SMALL */
+@media screen and (min-width:421px) and (max-width: 576px){
+    .slide video{
+        height: 55vh;
+    }
+
+    .caption{
+        width: 155px;
+        height: 32px;
+    }
+
+    .arrow{
+        top: 15%;
+        font-size: 2.75vw;
+    }
+    
+    .slider-icon{
+        font-size: 1.5vw;
+        } 
+
+    .bi{
+        padding: 3px 7px 0px 7px;
+        }
+
+    .vid-sticker{
+        top:10vh;
+        left:27.5vw;
+        width:42.5vw;
+        height:32.5vh;
+        font-size: 3vw;
+    }
+    
+    .sticker-btn{
+        margin: 5px 7.5px;
+        padding: 4px 20px;
+        font-size: 1.75vw;
+    } 
+}
+
+/* MEDIUM */
+@media screen and (min-width:577px) and (max-width: 768px){
+    .slide video{
+        height: 80vh;
+    }
+
+    .caption{
+        width: 170px;
+        height: 30px;
+    }
+
+    .slider-icon{
+        font-size: 1.3vw;
+    } 
+
+    .arrow{
+        top: 5%;
+        font-size: 2.25vw;
+    }
+
+    .bi{
+        padding: 0px 7px;
+        }
+    
+    .vid-sticker{
+        top:12.5vh;
+        left:30vw;
+        width:40vw;
+        height:50vh;
+        font-size: 2.5vw;
+    }
+    
+    .sticker-btn{
+        margin: 5px 7.5px;
+        padding: 4px 25px;
+        font-size: 1.75vw;
+    } 
+}
+
+/* LARGE */
+@media screen and (min-width:769px) and (max-width: 992px){
+    .slide video{
+        height: 80vh;
+    }
+    
+    .caption{
+        width: 200px;
+        height: 40px;
+    }
+
+    .arrow{
+        top: 20%;
+        font-size: 2vw;
+    }
+    
+    .slider-icon{
+        font-size: 1.5vw;
+        } 
+
+    .bi{
+        padding: 4px 7px 0px 7px;
+        }
+
+    .vid-sticker{
+        top:15vh;
+        left:5vw;
+        width:30vw;
+        height:50vh;
+        font-size: 2vw;
+    }
+    
+    .sticker-btn{
+        margin: 5px 7.5px;
+        padding: 4px 25px;
+        font-size: 1.25vw;
+    }    
+}
+
+/* EXTRA LARGE */
+@media screen and (min-width:993px) and (max-width: 1200px){
+    .vid-sticker{
+        top:25vh;
+        left:5vw;
+        width:35vw;
+        height:45vh;
+        font-size: 2.5vw;
+    }
+    
+    .sticker-btn{
+        margin: 5px 10px;
+        padding: 4px 25px;
+        font-size: 1.75vw;
+    }    
+}
+
