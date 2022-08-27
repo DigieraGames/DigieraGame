@@ -1,69 +1,20 @@
 // SLIDER START 
-let flag = 0;
-let lastKnownScrollPosition = 0;
-let ticking = false;
-
-let btn0 = document.getElementById("c-0");
-let btn1 = document.getElementById("c-1");
-let btn2 = document.getElementById("c-2");
-let btn3 = document.getElementById("c-3");
-
-    function controller(x){
-            flag = flag + x; 
-            slideshow(flag);
-        }
-
-    slideshow(flag);
-
-    function slideshow(num){
-            let slides = document.getElementsByClassName('slide');
-        flag=num;
-        if(num == slides.length){
-            flag = 0;
-            num = 0;
-        }
-        if(num < 0){
-            flag = slides.length-1;
-            num = slides.length-1;
-        }
-
-        for(let y of slides){
-           y.style.display = "none";
-        }
-        slides[num].style.display = "block";
-        
-        if(flag==0){
-            btn0.innerText = "🟡";
-            btn1.innerText = "○";
-            btn2.innerText = "○";
-            btn3.innerText = "○";
-        }
-
-        else if(flag==1){
-            btn1.innerText = "🟡";
-            btn0.innerText = "○";
-            btn2.innerText = "○";
-            btn3.innerText = "○";
-        }
-
-        else if(flag==2){
-            btn2.innerText = "🟡";
-            btn1.innerText = "○";
-            btn0.innerText = "○";
-            btn3.innerText = "○";
-        }
-
-        else if(flag==3){
-            btn3.innerText = "🟡";
-            btn1.innerText = "○";
-            btn2.innerText = "○";
-            btn0.innerText = "○";
-        }
-    }
-
-    window.setInterval(function(){
-       controller(1);
-      }, 6000);
+const homeSwiper = new Swiper('.home-swiper', {
+    loop: true,
+    grabCursor: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+  });  
 // SLIDER END 
 
 // NAVBAR START 
