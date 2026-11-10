@@ -1,0 +1,103 @@
+/* ============ privacy policy pages — builds on index.css ============ */
+.pp { --acc: #7cc4ff; --acc2: #b48cff; }
+.pp[data-aura="darklight"]   { --acc: #ff5247; --acc2: #ffb36b; }
+.pp[data-aura="lumo"]        { --acc: #9b6bff; --acc2: #d9c2ff; }
+.pp[data-aura="gamepad"]     { --acc: #4de2a8; --acc2: #7ef0ff; }
+.pp[data-aura="renderlight"] { --acc: #e879f9; --acc2: #5eead4; }
+
+.pp main { width: min(860px, calc(100% - 32px)); padding: 104px 0 0; }
+.pp .nav nav a.back { color: var(--ink); }
+
+/* ---------- header card ---------- */
+.doc-hero { padding: clamp(22px, 4vw, 44px); overflow: hidden; }
+.doc-hero .p-icon { margin-bottom: 20px; }
+.doc-hero .kicker { font: 700 12px var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--acc); }
+.doc-hero h1 { margin: 10px 0 12px; font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.08; }
+.doc-hero .meta { color: var(--mute); font-size: 14.5px; }
+.doc-hero .chips { margin: 20px 0 0; }
+.doc-hero .chips li { border-color: color-mix(in srgb, var(--acc) 40%, transparent); }
+
+/* themed decoration behind each header */
+.deco { position: absolute; inset: 0; z-index: -1; pointer-events: none; border-radius: inherit; overflow: hidden; }
+/* Darklight: a guttering torch in the dark */
+[data-aura="darklight"] .deco {
+  background:
+    radial-gradient(38% 60% at 82% 30%, rgba(255, 150, 70, .34), transparent 70%),
+    radial-gradient(70% 90% at 82% 30%, rgba(190, 30, 30, .3), transparent 75%),
+    linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, .5));
+  animation: gutter 3.2s steps(1) infinite;
+}
+@keyframes gutter { 0%, 100% { opacity: 1; } 9% { opacity: .72; } 12% { opacity: 1; } 47% { opacity: .85; } 50% { opacity: 1; } 76% { opacity: .66; } 79% { opacity: 1; } }
+[data-aura="darklight"] .doc-body h2 { color: #ffd9c4; }
+/* Lumo: soft light breathing behind a photo frame */
+[data-aura="lumo"] .deco::before, [data-aura="lumo"] .deco::after {
+  content: ""; position: absolute; right: 6%; top: 50%; width: 190px; aspect-ratio: 3 / 4; border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, .25); background: linear-gradient(160deg, rgba(155, 107, 255, .5), rgba(155, 107, 255, .05));
+  translate: 0 -50%; rotate: 9deg; animation: sway 8s ease-in-out infinite;
+}
+[data-aura="lumo"] .deco::after { rotate: -8deg; right: 14%; opacity: .5; animation-delay: -4s; }
+@keyframes sway { 50% { transform: translateY(-10px) rotate(3deg); } }
+/* Gamepad Tester: a test bench — grid and a sweeping scan line */
+[data-aura="gamepad"] .deco {
+  background-image: linear-gradient(rgba(77, 226, 168, .14) 1px, transparent 1px), linear-gradient(90deg, rgba(77, 226, 168, .14) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(100deg, transparent 35%, #000); mask-image: linear-gradient(100deg, transparent 35%, #000);
+}
+[data-aura="gamepad"] .deco::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: var(--acc); box-shadow: 0 0 22px 4px var(--acc);
+  animation: scan 5s linear infinite;
+}
+@keyframes scan { from { left: 30%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } to { left: 100%; opacity: 0; } }
+[data-aura="gamepad"] .doc-hero .kicker, [data-aura="gamepad"] .doc-body h2 { font-family: ui-monospace, "SF Mono", Consolas, monospace; letter-spacing: .02em; }
+[data-aura="gamepad"] .doc-body h2::before { content: "> "; color: var(--acc); }
+/* Renderlight: an aurora drifting across the sky */
+[data-aura="renderlight"] .deco {
+  background: linear-gradient(115deg, transparent 20%, rgba(94, 234, 212, .34) 40%, rgba(232, 121, 249, .36) 58%, rgba(99, 102, 241, .3) 72%, transparent 88%);
+  background-size: 260% 100%; filter: blur(26px); animation: aurora 14s ease-in-out infinite alternate;
+}
+@keyframes aurora { from { background-position: 0% 0; transform: skewX(-8deg); } to { background-position: 100% 0; transform: skewX(8deg) scaleY(1.15); } }
+
+/* ---------- policy text ---------- */
+.doc-body { margin-top: clamp(16px, 3vw, 28px); padding: clamp(22px, 4vw, 48px); }
+.doc-body > :first-child { margin-top: 0; }
+.doc-body h2 {
+  margin: 38px 0 12px; padding-top: 26px; border-top: 1px solid var(--line);
+  font: 700 clamp(1.05rem, 2.2vw, 1.3rem)/1.3 var(--display); letter-spacing: -.01em;
+}
+.doc-body p { margin: 12px 0; color: #d3d6e2; }
+.doc-body ul { display: grid; gap: 9px; margin: 14px 0; }
+.doc-body li { position: relative; padding-left: 24px; color: #d3d6e2; }
+.doc-body li::before {
+  content: ""; position: absolute; left: 3px; top: .62em; width: 8px; height: 8px; border-radius: 2px; rotate: 45deg;
+  background: var(--acc); box-shadow: 0 0 12px var(--acc);
+}
+.doc-body strong { color: var(--ink); }
+.doc-body a { color: var(--acc2); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.doc-body a:hover { color: var(--ink); }
+.doc-body .short {
+  margin: 0 0 8px; padding: 16px 18px; border-radius: 18px; color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--acc) 45%, transparent);
+  background: color-mix(in srgb, var(--acc) 10%, transparent);
+}
+.doc-body .table { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 16px; }
+.doc-body table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 440px; }
+.doc-body th, .doc-body td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); color: #d3d6e2; }
+.doc-body tr:last-child td { border-bottom: 0; }
+.doc-body th { color: var(--mute); font-weight: 700; background: rgba(255, 255, 255, .04); }
+
+/* ---------- other policies ---------- */
+.doc-more { margin-top: clamp(16px, 3vw, 28px); display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.doc-more span { color: var(--mute); font-size: 14px; font-weight: 600; margin-right: 4px; }
+.doc-more a {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 8px; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(255, 255, 255, .05); font-size: 13.5px; font-weight: 700;
+  transition: background-color .25s, border-color .25s, transform .25s var(--ease);
+}
+.doc-more a:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .3); transform: translateY(-2px); }
+.doc-more img { width: 28px; height: 28px; border-radius: 8px; }
+.pp .foot { width: min(860px, calc(100% - 32px)); margin-top: clamp(36px, 6vw, 64px); }
+
+@media (max-width: 600px) {
+  .pp main { padding-top: 88px; }
+  [data-aura="lumo"] .deco { opacity: .45; }
+}
