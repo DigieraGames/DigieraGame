@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css?v=2">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 
@@ -58,7 +58,7 @@
         <a class="tile glass t1" href="#darklight" tabindex="-1" data-depth="26" style="--acc:#ff5247"><img src="images/darklight/icon.webp" alt=""><b>Darklight</b><i>Game</i></a>
         <a class="tile glass t2" href="#lumo" tabindex="-1" data-depth="-18" style="--acc:#9b6bff"><img src="images/lumo/icon.webp" alt=""><b>Lumo</b><i>App</i></a>
         <a class="tile glass t3" href="#gamepad" tabindex="-1" data-depth="38" style="--acc:#4de2a8"><img src="images/gamepad/icon.webp" alt=""><b>Gamepad Tester</b><i>App</i></a>
-        <a class="tile glass t4" href="#renderlight" tabindex="-1" data-depth="-30" style="--acc:#e879f9"><img src="images/renderlight/icon.webp" alt=""><b>Renderlight</b><i>Coming soon</i></a>
+        <a class="tile glass t4" href="#renderlight" tabindex="-1" data-depth="-30" style="--acc:#e879f9"><img src="images/renderlight/icon.webp" alt=""><b>Renderlight</b><i>App</i></a>
       </div>
 
       <a class="scroll-cue" href="#games" aria-label="Scroll to games"><span></span></a>
@@ -286,7 +286,7 @@
             </div>
           </div>
           <ul class="chips">
-            <li class="soon"><span class="dot"></span> Coming soon</li><li>Personalization</li><li>29 live wallpapers</li><li>Android 8.0+</li>
+            <li>Personalization</li><li>29 live wallpapers</li><li>Android 8.0+</li>
           </ul>
           <p class="p-desc">Give your phone a screen that is actually alive. 29 hand-built animated wallpapers that glow, drift and react to your touch — every scene drawn live on your phone, so it stays crisp on any screen.</p>
           <ul class="feats">
@@ -297,10 +297,10 @@
             <li>15 wallpapers free. Premium is one purchase, never a subscription.</li>
           </ul>
           <div class="p-actions">
-            <span class="btn primary play pending" aria-disabled="true">
+            <a class="btn primary play" href="https://play.google.com/store/apps/details?id=com.digiera.livewallpapers" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
-              Coming soon to Google Play
-            </span>
+              Get it on Google Play
+            </a>
             <a class="btn" href="privacy/renderlight.html">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
               Privacy Policy
@@ -380,6 +380,6 @@
     <div class="frame" id="trailerFrame"></div>
   </dialog>
 
-  <script src="index.js" defer></script>
+  <script src="index.js?v=2" defer></script>
 </body>
 </html>
