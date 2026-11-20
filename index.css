@@ -18,6 +18,7 @@ body[data-aura="darklight"] { --a1: #c41e1e; --a2: #5a0f2e; --a3: #6f8f12; }
 body[data-aura="lumo"]      { --a1: #6d28d9; --a2: #a855f7; --a3: #3b5bff; }
 body[data-aura="gamepad"]   { --a1: #0f9d74; --a2: #14536b; --a3: #4de2a8; }
 body[data-aura="renderlight"] { --a1: #3b1fa8; --a2: #c026d3; --a3: #14b8a6; }
+body[data-aura="sparkade"] { --a1: #5b21b6; --a2: #9d3a8c; --a3: #14b8a6; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
@@ -145,10 +146,11 @@ h1 { margin: 22px 0 20px; font: 800 clamp(2.3rem, 6.4vw, 5.2rem)/1.02 var(--disp
 .tile b { font: 700 13px var(--display); }
 .tile i { font-style: normal; font-size: 12px; color: var(--acc); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .tile:hover { border-color: var(--acc); }
-.t1 { left: 2%; top: 0; rotate: -6deg; }
-.t2 { right: 2%; top: 8%; rotate: 5deg; animation-delay: -2.4s; }
-.t3 { left: 12%; bottom: 0; rotate: -2deg; animation-delay: -4.6s; }
-.t4 { right: 10%; bottom: 6%; rotate: 4deg; animation-delay: -1.2s; }
+.t1 { left: 0; top: 0; rotate: -6deg; }
+.t2 { right: 0; top: 4%; rotate: 5deg; animation-delay: -2.4s; }
+.t3 { left: 0; bottom: 0; rotate: -2deg; animation-delay: -4.6s; }
+.t4 { right: 0; bottom: 2%; rotate: 4deg; animation-delay: -1.2s; }
+.t5 { left: calc(50% - clamp(70px, 7.5vw, 95px)); top: 34%; rotate: -3deg; animation-delay: -3.3s; }
 @keyframes bob { 50% { translate: 0 -14px; } }
 
 .scroll-cue {
@@ -175,6 +177,7 @@ h2 { font: 800 clamp(2rem, 5vw, 3.6rem)/1.05 var(--display); letter-spacing: -.0
 .lumo      { --acc: #9b6bff; --acc2: #d9c2ff; }
 .gamepad   { --acc: #4de2a8; --acc2: #7ef0ff; }
 .renderlight { --acc: #e879f9; --acc2: #5eead4; }
+.sparkade  { --acc: #a884fa; --acc2: #69e8ce; }
 .product::after { /* accent edge glow */
   content: ""; position: absolute; inset: -1px; border-radius: inherit; z-index: -1; pointer-events: none;
   background: radial-gradient(60% 50% at 100% 0%, color-mix(in srgb, var(--acc) 26%, transparent), transparent 70%);
@@ -231,6 +234,42 @@ h3 { font: 700 clamp(1.25rem, 2.4vw, 1.9rem)/1.15 var(--display); letter-spacing
 .thumbs button img { width: 100%; height: 100%; object-fit: cover; }
 .thumbs button:hover { opacity: .9; transform: translateY(-2px); }
 .thumbs button.on { opacity: 1; border-color: var(--acc); box-shadow: 0 0 18px -4px var(--acc); }
+
+/* ---------- Sparkade: arcade cabinet + game picker ---------- */
+.cab { perspective: 900px; --rx: 0deg; --ry: 0deg; }
+.cab-screen {
+  position: relative; aspect-ratio: 16 / 9; border-radius: 22px; overflow: hidden; background: #000;
+  border: 8px solid #1a1030; outline: 1px solid var(--line);
+  box-shadow: 0 34px 70px -28px #000, 0 0 70px -14px var(--acc), 0 0 110px -30px var(--acc2), inset 0 0 40px rgba(0, 0, 0, .6);
+  transform: rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .35s var(--ease);
+}
+.cab-screen img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s, transform .9s var(--ease), filter .3s; }
+.cab-screen img.swap { opacity: 0; transform: scale(1.05); filter: saturate(1.6) brightness(1.3); }
+.scan { /* CRT scanlines and a slow glare */
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .09) 50%, transparent 60%) 0 0 / 250% 100%,
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .16) 0 1px, transparent 1px 3px);
+  animation: glare 6s linear infinite;
+}
+@keyframes glare { from { background-position: 150% 0, 0 0; } to { background-position: -100% 0, 0 0; } }
+.cab-name {
+  position: absolute; left: 12px; bottom: 10px; padding: 4px 12px; border-radius: 999px; font: 700 11px var(--display);
+  letter-spacing: .1em; text-transform: uppercase; color: #07080d; background: linear-gradient(135deg, var(--acc2), var(--acc));
+}
+.cab-deck { display: flex; justify-content: center; align-items: center; gap: 14px; margin: 14px auto 0; width: 62%; padding: 9px 18px; border-radius: 0 0 20px 20px; background: linear-gradient(#1a1030, #120a24); border: 1px solid var(--line); border-top: 0; }
+.cab-deck i { width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff9aa6, #e0455a); box-shadow: 0 0 12px #e0455a88; animation: blink 2.4s steps(1) infinite; }
+.cab-deck i + i { background: radial-gradient(circle at 35% 30%, #fff2b3, #f5c518); box-shadow: 0 0 12px #f5c51888; animation-delay: -1.2s; }
+.cab-deck b { width: 34px; height: 8px; border-radius: 4px; background: #2c1d4d; margin-left: auto; }
+.cab-deck b + b { margin-left: 0; }
+@keyframes blink { 50% { opacity: .45; } }
+.games { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.games button {
+  padding: 6px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--mute);
+  border: 1px solid var(--line); background: rgba(255, 255, 255, .05); transition: color .25s, border-color .25s, background .25s, transform .25s var(--ease);
+}
+.games button:hover { color: var(--ink); transform: translateY(-2px); }
+.games button.on { color: #07080d; border-color: transparent; background: linear-gradient(135deg, var(--acc2), var(--acc)); }
 
 /* ---------- Lumo: fanned photo stack ---------- */
 .lumo .p-visual { container-type: inline-size; }
@@ -393,6 +432,7 @@ h3 { font: 700 clamp(1.25rem, 2.4vw, 1.9rem)/1.15 var(--display); letter-spacing
   .hero-orbit .ring { display: none; }
   .tile { position: static; width: auto; padding: 10px; border-radius: 20px; text-align: left; }
   .tile b { font-size: 11px; }
+  .t5 { grid-column: 1 / -1; width: 50%; justify-self: center; }
   .scroll-cue { display: none; }
   .p-icon { width: 64px; height: 64px; border-radius: 17px; }
   .p-title { gap: 14px; }

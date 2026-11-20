@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=2">
+  <link rel="stylesheet" href="index.css?v=4">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 
@@ -59,6 +59,7 @@
         <a class="tile glass t2" href="#lumo" tabindex="-1" data-depth="-18" style="--acc:#9b6bff"><img src="images/lumo/icon.webp" alt=""><b>Lumo</b><i>App</i></a>
         <a class="tile glass t3" href="#gamepad" tabindex="-1" data-depth="38" style="--acc:#4de2a8"><img src="images/gamepad/icon.webp" alt=""><b>Gamepad Tester</b><i>App</i></a>
         <a class="tile glass t4" href="#renderlight" tabindex="-1" data-depth="-30" style="--acc:#e879f9"><img src="images/renderlight/icon.webp" alt=""><b>Renderlight</b><i>App</i></a>
+        <a class="tile glass t5" href="#sparkade" tabindex="-1" data-depth="22" style="--acc:#a884fa"><img src="images/sparkade/icon.webp" alt=""><b>Sparkade</b><i>Soon</i></a>
       </div>
 
       <a class="scroll-cue" href="#games" aria-label="Scroll to games"><span></span></a>
@@ -119,6 +120,70 @@
             <button data-src="images/darklight/shot4.webp" aria-label="Screenshot 4"><img src="images/darklight/shot4.webp" alt="" loading="lazy"></button>
             <button data-src="images/darklight/shot5.webp" aria-label="Screenshot 5"><img src="images/darklight/shot5.webp" alt="" loading="lazy"></button>
             <button data-src="images/darklight/shot6.webp" aria-label="Screenshot 6"><img src="images/darklight/shot6.webp" alt="" loading="lazy"></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sparkade -->
+      <article class="product glass sparkade flip reveal" id="sparkade" data-aura="sparkade">
+        <div class="p-info">
+          <div class="p-title">
+            <img class="p-icon" src="images/sparkade/icon.webp" alt="Sparkade icon" width="84" height="84" loading="lazy">
+            <div>
+              <h3>Sparkade: Offline &amp; 2 Player</h3>
+              <p class="p-tag">17 offline mini games. Play solo, challenge friends, and use your controller.</p>
+            </div>
+          </div>
+          <ul class="chips">
+            <li class="soon"><span class="dot"></span> Coming soon</li><li>Arcade</li><li>17 mini games</li><li>Local 2 player</li>
+          </ul>
+          <p class="p-desc">Your next quick game is right here. Sparkade packs 17 mini games into one pocket arcade, with solo challenges, local 2 player modes in supported games, and touch or controller play.</p>
+          <ul class="feats">
+            <li>Play the core mini games offline: chase a score, run a campaign or beat CPU rivals</li>
+            <li>Bring a friend: local 2 player, or connect to another device in supported games</li>
+            <li>Earn Sparks through play and unlock skins and characters with their own abilities</li>
+            <li>On-screen controls or a compatible game controller, with settings to suit you</li>
+            <li>Contains ads and optional purchases, including Remove Ads</li>
+          </ul>
+          <div class="p-actions">
+            <span class="btn primary play pending" aria-disabled="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg>
+              Coming soon to Google Play
+            </span>
+            <a class="btn" href="privacy/sparkade.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+
+        <div class="p-visual">
+          <div class="cab" id="cab">
+            <div class="cab-screen">
+              <img id="cabImg" src="images/sparkade/shot1.webp" alt="Sparkade arcade menu" width="1280" height="720">
+              <span class="scan" aria-hidden="true"></span>
+              <span class="cab-name" id="cabName">Arcade menu</span>
+            </div>
+            <div class="cab-deck" aria-hidden="true"><i></i><i></i><b></b><b></b></div>
+          </div>
+          <div class="games" id="games17" role="tablist" aria-label="Sparkade games">
+            <button class="on" data-i="1">Arcade menu</button>
+            <button data-i="8">Neon Pong</button>
+            <button data-i="10">Pulse Breaker</button>
+            <button data-i="14">Orbit Drift</button>
+            <button data-i="9">Twin-Stick Arena</button>
+            <button data-i="4">Tanks</button>
+            <button data-i="11">Neon Cycles</button>
+            <button data-i="2">Neon Soccer</button>
+            <button data-i="15">Shockwave Shmup</button>
+            <button data-i="17">Tether</button>
+            <button data-i="13">Gravity Golf</button>
+            <button data-i="7">Sprout Link</button>
+            <button data-i="16">Sumo Bumpers</button>
+            <button data-i="6">Ink Rush</button>
+            <button data-i="12">Echo Dodge</button>
+            <button data-i="5">Bomb Party</button>
+            <button data-i="3">Stretch Duel</button>
           </div>
         </div>
       </article>
@@ -346,7 +411,7 @@
         <p>digiera games is one person: designing, coding, drawing, testing and replying to every review. No studio floor, no publisher — just things I wanted to exist, made carefully and shipped to Google Play.</p>
         <ul class="facts">
           <li><b>1</b><span>developer</span></li>
-          <li><b>4</b><span>live on Google Play</span></li>
+          <li><b>4</b><span>live on Google Play, 1 on the way</span></li>
           <li><b>0</b><span>accounts required</span></li>
         </ul>
       </div>
@@ -367,6 +432,7 @@
     <nav aria-label="Privacy policies">
       <span>Privacy:</span>
       <a href="privacy/darklight.html">Darklight</a>
+      <a href="privacy/sparkade.html">Sparkade</a>
       <a href="privacy/lumo.html">Lumo</a>
       <a href="privacy/gamepad.html">Gamepad Tester</a>
       <a href="privacy/renderlight.html">Renderlight</a>
@@ -380,6 +446,6 @@
     <div class="frame" id="trailerFrame"></div>
   </dialog>
 
-  <script src="index.js?v=2" defer></script>
+  <script src="index.js?v=3" defer></script>
 </body>
 </html>

@@ -237,6 +237,45 @@
   if (calm) render(0, 0, 0, 0, () => false);
   requestAnimationFrame(tick);
 
+  /* ================= Sparkade ================= */
+  /* an arcade cabinet that cycles through its games; tap a name to play it on the screen */
+  const cab = $('#cab');
+  if (cab) {
+    const cabImg = $('#cabImg'), cabName = $('#cabName');
+    const picks = $$('#games17 button');
+    let cur = 0, cabVisible = false, cabUser = 0;
+    const show = (i, user) => {
+      if (i === cur) return;
+      cur = i;
+      if (user) cabUser = performance.now();
+      const b = picks[i];
+      picks.forEach(x => x.classList.toggle('on', x === b));
+      cabImg.classList.add('swap');
+      setTimeout(() => {
+        cabImg.src = `images/sparkade/shot${b.dataset.i}.webp`;
+        cabImg.alt = 'Sparkade: ' + b.textContent;
+        cabName.textContent = b.textContent;
+        cabImg.decode().catch(() => {}).then(() => cabImg.classList.remove('swap'));
+      }, 260);
+    };
+    $('#games17').addEventListener('click', e => {
+      const b = e.target.closest('button');
+      if (b) show(picks.indexOf(b), true);
+    });
+    watch(cab, v => { cabVisible = v; });
+    if (!calm) {
+      setInterval(() => {
+        if (cabVisible && performance.now() - cabUser > 6000) show((cur + 1) % picks.length);
+      }, 3200);
+      cab.addEventListener('pointermove', e => {
+        const r = cab.getBoundingClientRect();
+        cab.style.setProperty('--rx', (((e.clientY - r.top) / r.height) - .5) * -6 + 'deg');
+        cab.style.setProperty('--ry', (((e.clientX - r.left) / r.width) - .5) * 8 + 'deg');
+      });
+      cab.addEventListener('pointerleave', () => { cab.style.setProperty('--rx', '0deg'); cab.style.setProperty('--ry', '0deg'); });
+    }
+  }
+
   /* ================= Renderlight ================= */
   /* a phone that plays the real wallpapers; tap it and it ripples back */
   const phone = $('#phone');
