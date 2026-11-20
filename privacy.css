@@ -90,6 +90,13 @@
   background: var(--acc); box-shadow: 0 0 12px var(--acc);
 }
 .doc-body strong { color: var(--ink); }
+.doc-body .steps { display: grid; gap: 10px; margin: 14px 0; counter-reset: s; }
+.doc-body .steps li { padding-left: 42px; counter-increment: s; }
+.doc-body .steps li::before {
+  content: counter(s); left: 0; top: -1px; width: 28px; height: 28px; rotate: 0deg; border-radius: 50%; display: grid; place-items: center;
+  font: 700 13px var(--display); color: #07080d; background: linear-gradient(135deg, var(--acc2), var(--acc)); box-shadow: none;
+}
+.doc-body a.btn { color: #07080d; text-decoration: none; }
 .doc-body a { color: var(--acc2); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .doc-body a:hover { color: var(--ink); }
 .doc-body .short {
