@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../index.css?v=4">
-  <link rel="stylesheet" href="../privacy.css?v=5">
+  <link rel="stylesheet" href="../privacy.css?v=7">
 </head>
 <body class="pp" data-aura="sparkade">
   <div class="aura" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="grid"></span><span class="grain"></span></div>
@@ -27,37 +27,57 @@
       <img class="p-icon" src="../images/sparkade/icon.webp" alt="Sparkade icon" width="84" height="84">
       <p class="kicker">Privacy Policy</p>
       <h1>Sparkade</h1>
-      <p class="meta">Sparkade: Offline &amp; 2 Player, by Digiera Games<br>Effective date: 20 November 2026</p>
+      <p class="meta">Sparkade: Offline &amp; 2 Player, by Digiera Games<br>Effective date: 27 November 2026</p>
       <ul class="chips"><li>Plays offline</li><li>Ads by Google AdMob</li><li>Optional Google sign-in</li></ul>
     </section>
 
     <article class="doc-body glass">
-      <p class="short"><strong>In short:</strong> the core games work offline and your progress is stored on your device. Online features (sign-in, friend connections, ads and purchases) use Google and Firebase services, described below. Contact: <a href="mailto:digieragames@gmail.com">digieragames@gmail.com</a>.</p>
+      <p class="short"><strong>In short:</strong> most games can be played offline and your progress is stored on your device. Signing in with Google also saves your progress to your account. Online features (sign-in, friends, invitations, online play, ads and purchases) use Google, Firebase and Cloudflare services, described below. Contact: <a href="mailto:digieragames@gmail.com">digieragames@gmail.com</a>.</p>
 
-      <h2>Information used by the app</h2>
-      <p>Core games can be played offline. The app stores settings, game progress, scores, Sparks, unlocks and purchase-delivery records on your device. Clearing app storage may remove local progress. Device backup behavior may depend on Android and your settings.</p>
-      <p>If you use Google sign-in, Firebase Authentication processes account information such as your user identifier, name, email address and profile image when provided. The app can read account-linked entitlements. Multiplayer room pairing can also use an anonymous Firebase account. Signing out ends your session; it does not itself delete your account.</p>
-      <p>Supported online multiplayer uses connection and signaling data, room codes and network addresses to connect players through Firebase, WebRTC, STUN and, when configured, relay providers. Game input, state or streamed game pictures and audio are sent to the other player as needed for the selected connection mode.</p>
-      <p><strong>Connection and relay providers.</strong> Players normally connect directly to each other. To find a route, the app contacts Google's public STUN servers, which see your IP address. If a direct connection is not possible (for example on some mobile networks, offices or schools), game traffic is sent through a relay run by <strong>Cloudflare</strong> (Cloudflare Realtime TURN). To use it, the app asks a small Cloudflare Worker operated by us for short-lived relay credentials, which expire after about two hours. That request carries no account details, and we do not store the game traffic. See <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</p>
+      <h2>Information on your device</h2>
+      <p>Most games can be played offline. The app stores settings, game progress, scores, Sparks, unlocked items, your friends list and purchase delivery records on your device. Clearing the app's storage or uninstalling it removes this local data.</p>
 
-      <h2>Analytics, advertising and purchases</h2>
-      <p>The Android app uses Firebase Analytics for usage events such as games played, modes and session outcomes. You can turn usage statistics off in <strong>Settings &gt; Privacy</strong>. Analytics SDKs may process device and app identifiers and technical information; game event payloads do not intentionally include your name or email.</p>
-      <p>The app offers Google AdMob advertisements. Advertising services may process device identifiers, IP-derived approximate location, app interactions and diagnostic information to provide ads, measure performance and prevent fraud. Consent and ad privacy choices are presented where required by the configured service. Availability of ads depends on connectivity and eligibility. The one-time Remove Ads purchase turns ads off.</p>
-      <p>Google Play handles purchase checkout. The app uses product identifiers and purchase or transaction tokens to deliver Sparks and Remove Ads, restore eligible purchases and prevent duplicate delivery. The app does not receive payment card numbers from Google Play.</p>
+      <h2>Signing in with Google (optional)</h2>
+      <p>If you sign in with Google, Google Firebase processes your account identifier, name, email address and profile picture. The app can read purchases linked to your account. Your game progress (statistics, achievements, Sparks, items, progress in games, your friends list, your friend name and some preferences) is saved to your account in Google Firebase (Firestore), so that it can be restored on another phone or after reinstalling. The same account is used by our app Gamepad Tester. Signing out ends your session; it does not delete your account.</p>
 
-      <h2>Support and service providers</h2>
-      <p>If you email support, we receive your email address and the information you choose to send. Service providers process information for authentication, advertising, analytics, purchases, hosting and multiplayer connectivity. See <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>, <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy information</a> and <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</p>
+      <h2>Online play</h2>
+      <p>To connect two players, the app uses a short room code and connection data (including network addresses) stored in Google Firebase, with an anonymous account if you are not signed in. Rooms are removed when the connection is made or cancelled; leftover rooms are removed automatically, usually within a few hours. Game controls, game state, or the game's picture and sound are sent to the other player. The app does not record your microphone or camera.</p>
+      <p><strong>Connection and relay providers.</strong> Players normally connect directly to each other using WebRTC. To find a route, the app contacts Google's public STUN servers, which see your IP address. If a direct connection is not possible (for example on some mobile networks, offices or schools), game traffic is sent through a relay run by <strong>Cloudflare</strong> (Cloudflare Realtime TURN). To use it, the app asks a small Cloudflare Worker operated by us for short-lived relay credentials, which expire after about two hours. That request carries no account details, and we do not store the game traffic. See <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</p>
 
-      <h2>Retention, deletion and your choices</h2>
-      <p>Local data remains until you remove it through app or device controls, subject to backup behavior. Records held by Google, Firebase and other providers follow those providers' retention practices. Deleting local storage or signing out alone does not delete provider-held records.</p>
-      <p>To delete your account and data, see <a href="sparkade-delete-account.html">how to delete your Sparkade account</a>. To ask a privacy question or request access to your data, email <a href="mailto:digieragames@gmail.com">digieragames@gmail.com</a>. Include the Google account used to sign in, if any, so we can find your records.</p>
+      <h2>Friends and invitations (optional)</h2>
+      <p>If you add someone as a friend after playing together, the friends list and names are kept on your devices, and the name you choose is sent to that friend. So that friends can invite you, the app obtains a push messaging token from Firebase Cloud Messaging. Our relay service on Cloudflare encrypts it into an invite pass for that friend and does not store it. Your friend's device keeps the pass, and if you are friends by username it is also stored with your friendship in Google Firebase. An invitation contains an identifier for the friendship, the room code and the game, and is delivered through Firebase Cloud Messaging. You can turn invitations off, or remove a friend, in the app.</p>
 
-      <h2>Security, children and changes</h2>
-      <p>Network services use their configured security protections. No system can guarantee absolute security. Sparkade is not directed at children under 13, and we do not knowingly collect personal information from children.</p>
-      <p>This policy may be updated as services change. The effective date above shows the latest version.</p>
+      <h2>Usernames (optional)</h2>
+      <p>A username is used only to add friends. If you create one, your username, an account identifier (anonymous, or your Google sign-in), friend requests, friendships and block list are stored in Google Firebase (Firestore). Other players can find your account by typing your exact username.</p>
+      <p>Your username and this data are kept until you delete the username or your account. <strong>If you have not signed in with Google, they are deleted automatically after 30 days without opening the app.</strong> To do this, we store the time you last opened it.</p>
+
+      <h2>Reports</h2>
+      <p>If you report a player, we keep the report (who reported, who was reported, the name, the reason, anything you write about it, and the time) so that we can review it and keep players safe. Reports are kept for up to 6 months.</p>
+
+      <h2 id="friend-rules">Friend rules</h2>
+      <p>Usernames and messages in reports must follow these rules: no offensive, hateful or sexual names, no pretending to be someone else, and no harassing other players. We may remove names that break these rules. You can block or report a player in the app.</p>
+
+      <h2>Analytics, ads and purchases</h2>
+      <p>The app uses Firebase Analytics for usage events such as games played, modes and session results. You can turn this off in the app under <strong>Settings &gt; Privacy</strong>. Analytics may process device or app identifiers and technical information; our game events do not include your name or email address.</p>
+      <p>The app shows Google AdMob advertisements. Advertising services may process device identifiers, approximate location derived from your IP address, app interactions and diagnostic information to show ads, measure them and prevent fraud. Consent and ad privacy choices are shown where required. The one-time Remove Ads purchase turns ads off.</p>
+      <p>Google Play handles payments. The app uses product identifiers and purchase tokens to deliver Sparks and Remove Ads, restore purchases and prevent duplicate delivery. The app does not receive your payment card number.</p>
+
+      <h2>Service providers</h2>
+      <p>We use Google (Firebase, AdMob, Google Play) and Cloudflare (connection relay and invitations) to provide these features. They process information under their own terms: <a href="https://policies.google.com/privacy" rel="noopener">Google privacy policy</a>, <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy information</a>, <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare privacy policy</a>.</p>
+      <p>If you email support, we receive your email address and the information you choose to send.</p>
+
+      <h2>Keeping and deleting your data</h2>
+      <p>You can delete your account or username at any time: see <a href="sparkade-delete-account.html">Delete your Sparkade account</a>. Local data stays until you remove it through app or device controls. Records held by Google, Firebase and other providers follow those providers' retention practices, and purchase records held by Google Play are kept by Google. Signing out or clearing local data does not delete provider-held records.</p>
+      <p>To ask a privacy question or request access to your data, email <a href="mailto:digieragames@gmail.com">digieragames@gmail.com</a>. Include the Google account used to sign in, if any, so we can find your records.</p>
+
+      <h2>Children</h2>
+      <p>Sparkade is not directed at children under 13, and we do not knowingly collect personal information from children.</p>
+
+      <h2>Security and changes</h2>
+      <p>Network services use their standard security protections, but no system can be guaranteed completely secure. We may update this policy; the latest version and its effective date are shown on this page.</p>
 
       <h2>Contact</h2>
-      <p>Digiera Games<br>Email: <a href="mailto:digieragames@gmail.com">digieragames@gmail.com</a></p>
+      <p>Digiera Games, <a href="mailto:digieragames@gmail.com">digieragames@gmail.com</a>.</p>
     </article>
 
     <nav class="doc-more" aria-label="Other privacy policies">
